@@ -2,6 +2,12 @@ Given(/^the visitor goes to the "([^"]*)" page$/) do |page|
   if page == "sign in"
     @test_site.landing.go_to_signin.click
   end
+  if page == "register"
+    @test_site.landing.go_to_register.click
+  end
+  if page == "new registration"
+    @test_site.landing.go_to_new_registration.click
+  end
 end
 
 When(/^the visitor signs in as an existing member$/) do

@@ -8,6 +8,7 @@ gem 'selenium-webdriver'
 gem 'capybara'
 gem 'capybara-webkit'
 gem 'poltergeist'
+gem 'faker'
 
 
 group :development do

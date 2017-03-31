@@ -5,9 +5,8 @@ class RegisterPage < SitePrism::Page
   set_url_matcher /meaningfulplatform.co.uk\/?/
 
   #individual elements
-  element              :email,                        :id,          'member-email'
-  element              :password,                     :id,          'member-password'
-  element              :sign_in_button,               :class,       'btn-primary'
+  element              :registration_options,                        :id,          'register-check-card-form'
+
 
   #clection of elements
   elements            :other_thingy,                                'other.thingy'

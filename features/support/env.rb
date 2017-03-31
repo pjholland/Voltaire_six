@@ -5,6 +5,8 @@ require 'capybara/cucumber'
 require 'selenium-webdriver'
 require 'capybara-webkit'
 require 'capybara/poltergeist'
+require 'faker'
+require 'pry'
 
 $: << './test_site'
 $: << './lib'
@@ -22,6 +24,8 @@ require 'pages/signin'
 require 'pages/register'
 require 'pages/landing'
 require 'pages/dashboard'
+require 'pages/register'
+require 'pages/new_registration'
 
 Capybara.configure do |config|
   #config.default_driver = :chrome

@@ -20,6 +20,10 @@ class TestSite
     DashboardPage.new
   end
 
+  def new_registration
+    NewRegistrationPage.new
+  end
+
 
 end
 
