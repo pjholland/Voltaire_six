@@ -1,6 +1,6 @@
 require_relative "basepage"
 
-class TestHomePage < BasePage
+class TestHomePage < SitePrism::Page
   set_url "http://www.lastminute.com"
  #set_url_matcher /lastminute.com\/?/
 

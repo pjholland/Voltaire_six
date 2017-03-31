@@ -3,6 +3,8 @@ require 'capybara'
 require 'capybara/dsl'
 require 'capybara/cucumber'
 require 'selenium-webdriver'
+require 'capybara-webkit'
+require 'capybara/poltergeist'
 
 $: << './test_site'
 $: << './lib'
@@ -15,25 +17,37 @@ require 'sections/container_with_element'
 require 'sections/child'
 require 'sections/parent'
 require 'sections/search_result'
-
 require 'pages/home'
-require 'capybara-webkit'
+require 'pages/signin'
+require 'pages/register'
+require 'pages/landing'
+require 'pages/dashboard'
 
 Capybara.configure do |config|
-  config.default_driver = :webkit
-  config.javascript_driver = :selenium
+  #config.default_driver = :chrome
+  config.default_driver = :firefox
+  config.javascript_driver = :poltergeist
+  Capybara.app_host = "https://member-portal.qa.meaningfulplatform.co.uk/"
+
   config.run_server = false
   config.default_selector = :css
-  config.default_wait_time = 5
+  config.default_max_wait_time = 5
 
   #capybara 2.1 config options
   config.match = :prefer_exact
   config.ignore_hidden_elements = false
+
 end
 
-Capybara.register_driver :selenium do |app|
-  profile = Selenium::WebDriver::Firefox::Profile.new
-  profile["browser.cache.disk.enable"] = false
-  profile["browser.cache.memory.enable"] = false
-  Capybara::Selenium::Driver.new(app, :browser => :firefox, profile: profile)
+Capybara.register_driver :firefox do |app|
+  Capybara::Selenium::Driver.new( app, :browser => :firefox, :desired_capabilities => Selenium::WebDriver::Remote::Capabilities.firefox(:marionette => false))
 end
+
+Capybara.register_driver :chrome do |app|
+  # optional
+  client = Selenium::WebDriver::Remote::Http::Default.new
+  # optional
+  client.timeout = 120
+  Capybara::Selenium::Driver.new(app, :browser => :chrome, :http_client => client)
+end
+

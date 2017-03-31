@@ -3,10 +3,10 @@ When /^I navigate to the home page$/ do
   @test_site.home.load
 end
 
-When /^I navigate to the letter A page$/ do
-  @test_site = TestSite.new
-  @test_site.dynamic_page.load(letter: 'a')
-end
+#When /^I navigate to the letter A page$/ do
+#  @test_site = TestSite.new
+#  @test_site.dynamic_page.load(letter: 'a')
+#end
 
 Then /^I am on the home page$/ do
   @test_site.home.should be_displayed
