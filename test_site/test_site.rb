@@ -24,6 +24,10 @@ class TestSite
     NewRegistrationPage.new
   end
 
+  def card_payment
+    CardPaymentPage.new
+  end
+
 
 end
 

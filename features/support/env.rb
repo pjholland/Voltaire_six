@@ -19,6 +19,7 @@ require 'sections/container_with_element'
 require 'sections/child'
 require 'sections/parent'
 require 'sections/search_result'
+
 require 'pages/home'
 require 'pages/signin'
 require 'pages/register'
@@ -26,6 +27,7 @@ require 'pages/landing'
 require 'pages/dashboard'
 require 'pages/register'
 require 'pages/new_registration'
+require 'pages/card_payment'
 
 Capybara.configure do |config|
   #config.default_driver = :chrome
